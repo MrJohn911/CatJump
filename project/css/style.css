@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.gameboard {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #333;
+    margin: 0 auto;
+    position: relative;
+}
+
+.wall {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    animation: wall-animation 3s infinite linear;
+}
+
+.cat-walk {
+    position: absolute;
+    bottom: 0px;
+    width: 250px;
+}
+
+.jump {
+    animation: cat-jump 0.8s ease-out;
+}
+
+@keyframes wall-animation {
+    0% {
+        right: -80px;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+@keyframes cat-jump {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 180px;
+    }
+    50% {
+        bottom: 180px;
+    }
+    60% {
+        bottom: 180px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
