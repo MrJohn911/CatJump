@@ -31,6 +31,29 @@
     animation: cat-jump 0.6s ease-out;
 }
 
+.clouds {
+    position: absolute;
+    width: 250px;
+    animation: clouds-animation 20s infinite linear;
+}
+
+.score {
+    position: absolute;
+    width: 200px;
+    font-size: 40px;
+    left: 20px;
+}
+
+@keyframes clouds-animation {
+    from {
+        right: 0;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
 @keyframes wall-animation {
     0% {
         right: -80px;

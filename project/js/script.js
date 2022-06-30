@@ -1,7 +1,11 @@
 var isJumping = false;
+var points = 0;
+var time = 1.8;
 
 const cat = document.querySelector('.cat-walk');
 const wall = document.querySelector('.wall');
+const clouds = document.querySelector('.clouds');
+const score = document.getElementById('score');
 
 const jump = () => {
     isJumping = true;
@@ -14,9 +18,9 @@ const jump = () => {
 }
 
 const loop = setInterval(() => {
-
     const wallPosition = wall.offsetLeft;
     const catPosition = +window.getComputedStyle(cat).bottom.replace('px', '');
+    const cloudsPosition = +window.getComputedStyle(clouds).right.replace('px', '');
 
     if(wallPosition <= 220 && wallPosition > 0 && catPosition < 80) {
         wall.style.animation = 'none';
@@ -28,11 +32,18 @@ const loop = setInterval(() => {
         cat.style.width = '150px';
         cat.style.marginLeft = '65px';
         
+        clouds.style.animation = 'none';
+        clouds.style.right = `${cloudsPosition}px`;
 
         clearInterval(loop);
+        clearInterval(scoreLoop);
     }
-
 }, 10);
+
+const scoreLoop = setInterval(() => {
+    score.innerHTML = points;
+    points += 20;
+}, 300);
 
 document.body.onkeydown = function(e) {
     if ((e.key == " " ||
